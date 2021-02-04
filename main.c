@@ -22,10 +22,13 @@ MyTar	my_tar_init() {
 // written over it.
 MyTarFile	my_tar_file_init() {
 	MyTarFile MyTarFile = {
-		.header = malloc(sizeof(my_tar_header)),
+		.header = NULL,
+		.next = NULL,
+		.prev = NULL,
 		.createFromFilename = &createFromFilename,
 		.createFromTarHeader = &createFromTarHeader,
 		.writeToArchive = &writeToArchive,
 		.createFile = &createFile
-	}
+	};
+	return MyTarFile;
 }
