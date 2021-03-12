@@ -1,34 +1,74 @@
+/*
+#TODO Create TODO List --Completed
+#TODO Handle Directories
+#TODO Handle symbolic links --Completed
+#TODO Handle hard links --Having trouble figuring this one out
+#TODO Create Parsing Function
+#TODO Create List Method --Completed
+#TODO Create Append Method
+#TODO Create Update Method
+#TODO Revamp Functional Tests
+*/
+
+
 #include "my_tar.h"
 
-// Should I malloc this? thinking no since I'll only ever need one of them
-// but maybe safer to do so, and if I only need one it's easy to keep track of
-// right?
-MyTar	my_tar_init() {
-	MyTar MyTar = {
-		._data = NULL,
-		.loadFromFileNames = &loadFromFileNames,
-		.loadFromArchive = &loadFromArchive,
-		.saveToArchive = &saveToArchive,
-		.extractFiles = &extractFiles,
-		.list = &list,
-		.updateFile = &updateFile,
-		.appendFile = &appendFile
-	};
-	return MyTar;
+static void	direct_to_functions(t_my_tar_options options, char **files, int size);
+
+int		main(int ac, char **av) {
+	t_my_tar_options options;
+
+	if (ac < 3) {
+		printf("tar: You must specify one of the '-ctrux' options\n");
+		return 0;
+	}
+	options = parse_options(&av[1], ac - 1);
+	direct_to_functions(options, &av[1], ac - 1);
+	return 0;
 }
 
-// Should I malloc this? probably need to since it will
-// be a node in a linked list I don't want data to get
-// written over it.
-MyTarFile	my_tar_file_init() {
-	MyTarFile MyTarFile = {
-		.header = NULL,
-		.next = NULL,
-		.prev = NULL,
-		.createFromFilename = &createFromFilename,
-		.createFromTarHeader = &createFromTarHeader,
-		.writeToArchive = &writeToArchive,
-		.createFile = &createFile
-	};
-	return MyTarFile;
+static void	direct_to_functions(t_my_tar_options options, char **files, int size) {
+	t_MyTar *MyTar = my_tar_init();
+
+	while (size) {
+		if (files[0][0] == '-') {
+			files++;
+		}
+		else {
+			break;
+		}
+		size--;
+	}
+	if ((options.flags & CREATE) == CREATE) {
+		MyTar->loadFromFilenames(MyTar, &files[1], size - 1);
+		MyTar->saveToArchive(MyTar, files[0]);
+	}
+	else if ((options.flags & EXTRACT) == EXTRACT) {
+		MyTar->loadFromArchive(MyTar, files[0]);
+		MyTar->extractFiles(MyTar); // May need to change to extract specific files
+	}
+	else if ((options.flags & APPEND) == APPEND) {
+		MyTar->loadFromArchive(MyTar, files[0]);
+		for (int i = 1; i < size; i++) {
+			MyTar->appendFile(MyTar, files[i]);
+		}
+		MyTar->saveToArchive(MyTar, files[0]);
+	}
+	else if ((options.flags & UPDATE) == UPDATE) {
+		MyTar->loadFromArchive(MyTar, files[0]);
+		for (int i = 1; i < size; i++) {
+			MyTar->updateFile(MyTar, files[i]);
+		}
+		MyTar->saveToArchive(MyTar, files[0]);
+	}
+	else if ((options.flags & LIST) == LIST) {
+		MyTar->loadFromArchive(MyTar, files[0]);
+		MyTar->list(MyTar);
+	}
+	else {
+		printf("Unrecognized flag, should have been caught prior to this check\n");
+		return;
+	}
+
+	MyTar->freeAll(MyTar);
 }
