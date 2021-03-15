@@ -83,7 +83,6 @@ typedef struct s_MyTar {
 	void	(*saveToArchive)(struct s_MyTar *self, char *archive_name);
 	void	(*extractFiles)(struct s_MyTar *self);
 	void	(*list)(struct s_MyTar *self);
-
 	void	(*updateFile)(struct s_MyTar *self, char *filename);
 	void	(*appendFile)(struct s_MyTar *self, char *filename);
 

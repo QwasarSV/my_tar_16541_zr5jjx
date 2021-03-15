@@ -112,12 +112,12 @@ static t_my_tar_options	check_flags(t_my_tar_options options) {
 
 static void error_output(t_my_tar_options options) {
 	if (options.error == UNKNOWN_OPTION) {
-		printf("tar: You must specify one of the '-ctrux' options\n");
+		printf("my_tar: You must specify one of the '-ctrux' options\n");
 	}
 	if (options.error == MULTIPLE_OPTIONS) {
-		printf("tar: You may not specify more than one '-ctrux' option\n");
+		printf("my_tar: You may not specify more than one '-ctrux' option\n");
 	}
 	if (options.error == MISSING_ARCHIVE) {
-		printf("tar: Refusing to write archive contents to terminal (missing -f option?)\n");
+		printf("my_tar: Refusing to write archive contents to terminal (missing -f option?)\n");
 	}
 }
