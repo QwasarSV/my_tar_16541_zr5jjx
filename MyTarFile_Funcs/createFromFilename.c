@@ -35,8 +35,8 @@ static void	tar_header_from_file_info(my_tar_header *header, t_file_info *file_i
 	my_strcpy(header->chksum, "        "); //when chksum is calculated is counts itself as spaces
 	header->typeflag = file_info->typeflag + '0';
 	my_strcpy(header->linkname, file_info->linkname);
-	my_strcpy(header->magic, "ustar ");
-	my_strcpy(header->version, " ");
+	my_strcpy(header->magic, "ustar");
+	my_strcpy(header->version, "  ");
 	my_strcpy(header->uname, file_info->uname); 
 	my_strcpy(header->gname, file_info->gname);
 	// devmajor and devminor are only present in the case that the fileype is a block file

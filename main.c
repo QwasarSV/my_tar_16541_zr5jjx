@@ -1,16 +1,3 @@
-/*
-#TODO Create TODO List --Completed
-#TODO Handle Directories
-#TODO Handle symbolic links --Completed
-#TODO Handle hard links --Having trouble figuring this one out
-#TODO Create Parsing Function
-#TODO Create List Method --Completed
-#TODO Create Append Method
-#TODO Create Update Method
-#TODO Revamp Functional Tests
-*/
-
-
 #include "my_tar.h"
 
 static void	direct_to_functions(t_my_tar_options options, char **files, int size);

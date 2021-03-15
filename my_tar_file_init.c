@@ -8,9 +8,10 @@ t_MyTarFile*	my_tar_file_init() {
 	new->createFromFilename = &createFromFilename;
 	new->createFromTarHeader = &createFromTarHeader;
 	new->writeToArchive = &writeToArchive;
+	new->file_info = (t_file_info*)malloc(sizeof(t_file_info));
+	new->header = (my_tar_header*)malloc(sizeof(my_tar_header));
+	my_memset(new->header, 0, 500);
 	new->file_contents = NULL;
-	new->file_info = NULL;
-	new->header = NULL;
 	new->next = NULL;
 	new->prev = NULL;
 
