@@ -10,7 +10,9 @@ int		main(int ac, char **av) {
 		return 0;
 	}
 	options = parse_options(&av[1], ac - 1);
-	direct_to_functions(options, &av[1], ac - 1);
+	if (options.error == 0) {
+		direct_to_functions(options, &av[1], ac - 1);
+	}
 	return 0;
 }
 

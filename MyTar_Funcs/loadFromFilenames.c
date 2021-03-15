@@ -21,12 +21,3 @@ void	loadFromFilenames(t_MyTar *self, char **filenames, int file_count) {
 		i++;
 	}
 }
-
-/*
-Loading from filenames:
-1. initialize self->data
-2. use self->data->createfromfilename to populate the header
-3. can use sizeof(filenames) / sizeof(filenames[0]) to determine how many files we have
-	UPDATE: can't do this since the filenames taken from command line aren't allocated. Going to have to add a size parameter
-4. for each file in the array initialize self->data->next and perform step 2
-*/
