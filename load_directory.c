@@ -9,6 +9,9 @@ void	load_directory(char *dir_name, t_MyTar *self) {
 
 	stream = opendir(dir_name);
 	while ((file = readdir(stream))) {
+		if (my_strcmp(".", file->d_name) == 0 || my_strcmp("..", file->d_name) == 0) {
+				continue;
+		}
 		create_path(file->d_name, dir_name, path);
 		appendFile(self, path);
 	}
