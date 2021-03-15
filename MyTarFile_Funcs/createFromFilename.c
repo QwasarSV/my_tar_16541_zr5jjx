@@ -32,7 +32,7 @@ static void	tar_header_from_file_info(my_tar_header *header, t_file_info *file_i
 	my_strcpy(header->gid, format(format_buf, my_itoa(file_info->gid, buf, 8), 8));
 	my_strcpy(header->size, format(format_buf, my_itoa(file_info->size, buf, 8), 12));
 	my_strcpy(header->mtime, format(format_buf, my_itoa(file_info->mtime, buf, 8), 12));
-	my_strcpy(header->chksum, "        "); //when chksum is calculated is counts itself as spaces
+	my_strncpy(header->chksum, "        ", 8); //when chksum is calculated is counts itself as spaces
 	header->typeflag = file_info->typeflag + '0';
 	my_strcpy(header->linkname, file_info->linkname);
 	my_strcpy(header->magic, "ustar");
