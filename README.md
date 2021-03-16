@@ -1,6 +1,6 @@
 This repository contains my emulation of the "tar" command for archiving and extracting files.
 
-Architecture and data structures:
+##**Architecture and data structures:**
 
 For this project, I took a rather unconventional approach which allowed me to explore the C language in a way that I
 hadn't before. Before this project I had certainly used structs extensively and I had used pointers to functions, though
@@ -18,7 +18,8 @@ information.
 Overall this project has been an incredible learning experience on multiple levels and I am certainly a more proficient
 programmer as a result!
 
-Functionality and how to run:
+##**Functionality and how to run:**
+
 To create and executable, run 'make' in the terminal to create an executable called 'my_tar'.
 You can operate my_tar in 5 different modes:
     -c = create archive
