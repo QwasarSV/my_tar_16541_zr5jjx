@@ -1,6 +1,6 @@
 #include "my_tar.h"
 
-int		octal_to_decimal(int octal_num) {
+int		octal_to_decimal(long octal_num) {
 	int decimal = 0;
 	int i = 1;
 

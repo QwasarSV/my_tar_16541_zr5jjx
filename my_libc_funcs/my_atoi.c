@@ -1,7 +1,7 @@
 #include "../my_tar.h"
 
-int		my_atoi(char *num) {
-	unsigned int result = 0;
+long	my_atoi(char *num) {
+	long result = 0;
 	int sign = 1;
 	int i = 0;
 

@@ -127,7 +127,7 @@ void	createFile(struct s_MyTarFile *self); //returns the file descriptor of the 
 
 t_MyTar*			my_tar_init();
 t_MyTarFile*		my_tar_file_init();
-int					octal_to_decimal(int octal_num);
+int					octal_to_decimal(long octal_num);
 t_my_tar_options	parse_options(char **command, int size);
 void				load_directory(char *dir_name, t_MyTar *self);
 
@@ -135,7 +135,7 @@ void				load_directory(char *dir_name, t_MyTar *self);
 char*	my_strcpy(char *dest, char *src);
 char*	my_strcat(char *dest, char *src);
 int		my_strcmp(char *s1, char *s2);
-int		my_atoi(char *nbr);
+long	my_atoi(char *nbr);
 char*	my_itoa(int value, char* dest, int base);
 void	my_strrev(char *str);
 void*	my_memset(void *s, int val, size_t n);
