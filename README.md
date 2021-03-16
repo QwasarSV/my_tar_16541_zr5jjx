@@ -21,12 +21,12 @@ programmer as a result!
 **Functionality and how to run:**
 
 To create and executable, run 'make' in the terminal to create an executable called 'my_tar'.
-You can operate my_tar in 5 different modes:__
-   * -c = create archive__
-   * -t = list archive__
-   * -x = extract archive__
-   * -r = append file(s) to existing archive__
-   * -u = like -r but only append if the modification time of the file is new that its counterpart in the archive__
+You can operate my_tar in 5 different modes:
+   * -c = create archive
+   * -t = list archive
+   * -x = extract archive
+   * -r = append file(s) to existing archive
+   * -u = like -r but only append if the modification time of the file is new that its counterpart in the archive
 Each of these options must also be accompanied by the -f flag to signify the name of the archive that you will be working with.
 
 syntax for running the program is as follows:
