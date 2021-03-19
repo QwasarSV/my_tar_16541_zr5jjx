@@ -26,12 +26,12 @@ You can operate my_tar in 5 different modes:
    * -t = list archive
    * -x = extract archive
    * -r = append file(s) to existing archive
-   * -u = like -r but only append if the modification time of the file is new that its counterpart in the archive
+   * -u = like -r but only append if the modification time of the file is newer than its counterpart in the archive
 Each of these options must also be accompanied by the -f flag to signify the name of the archive that you will be working with.
 
 syntax for running the program is as follows:
     ./my_tar [-OPERATING MODE][-f] [ARCHIVE FILENAME] [FILE1] [FILE2] [...]
-Note: including additional filenames at the end may not be nessessary for all operating modes
+Note: including additional filenames at the end may not be necessary for all operating modes
 
 Be careful when running the command that you specify the archive name as the first file.
 If an existing file is specified beforehand it will be assumed to be the archive and will be overwritten.
