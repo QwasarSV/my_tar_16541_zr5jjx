@@ -35,3 +35,4 @@ Note: including additional filenames at the end may not be necessary for all ope
 
 Be careful when running the command that you specify the archive name as the first file.
 If an existing file is specified beforehand it will be assumed to be the archive and will be overwritten.
+<br/><br/><br/><span><i>Made at <a href='https://qwasar.io'>Qwasar Silicon Valley</a></i></span> <span><img alt='Qwasar Silicon Valley Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px'></span>
